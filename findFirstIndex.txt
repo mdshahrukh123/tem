@@ -1,0 +1,40 @@
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	    int []arr={1,5,6,3,5,4,9,5,6};
+
+	    int val=6;
+
+	    int  ans=findIndxFirst(arr,0,val);
+
+	    System.out.println(ans);
+
+ 	}
+
+ 	
+ 	public static int findIndxFirst(int arr[],int vidx,int val){
+
+ 	    //base con..
+
+ 	    if(vidx==arr.length){
+
+ 	        return -1;
+
+ 	    }
+
+ 	    if(arr[vidx]==val){
+
+ 	        return vidx;
+
+ 	    }
+
+ 	    int ans=findIndxFirst(arr,vidx+1,val);
+ 
+	    return ans;
+
+ 	}
+
+ 	
+}

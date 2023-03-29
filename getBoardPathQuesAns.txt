@@ -1,0 +1,99 @@
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	int st = 0;
+
+	int ed = 10;
+
+	getBoardPath(st,ed,"");
+
+	}
+
+	public static void getBoardPath(int st, int ed, String ans){
+
+	    if(st == ed){
+
+	        System.out.println(ans);
+
+	        return ;
+
+	    }
+
+	    if(st > ed){
+
+	        return ;
+
+	    }
+
+	    
+	    for(int i=1; i<=6; i++){
+
+	        getBoardPath(st+i,ed,ans+i);
+
+	    }
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+           ******** ans ****
+514
+52111
+5212                         for  time calculate of program ----->>>>>	Long start1 = System.nanoTime();
+5221
+523
+5311
+532
+541
+55
+61111
+6112
+6121
+613
+6211
+622
+631
+64
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+           ***************   Second aproch ********** for time decreasing *********
+
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	int st = 0;
+
+	int ed = 10;
+
+	getBoardPath(st,ed,"");
+
+	}
+
+	public static void getBoardPath(int st, int ed, String ans){
+
+	    if(st == ed){
+
+	        System.out.println(ans);
+
+	        return ;
+
+	    }
+
+	    
+	    for(int i=1; i<=6; i++){
+
+	        if(st+i <= ed){
+
+	          getBoardPath(st+i,ed,ans+i);
+  
+	        }
+
+	        
+	    }
+
+	}
+
+}

@@ -1,0 +1,102 @@
+import java.util.*;
+
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	    int cr=0,cc=0;
+
+	    int er=2,ec=2;
+
+	    System.out.println(getMazePathMultisteps(cr,cc,er,ec));
+
+ 	}
+
+ 	public static ArrayList<String> getMazePathMultisteps(int cr,int cc,int er,int ec){
+
+ 	    //base condition
+ 
+ 	    if(cr==er && cc==ec){
+
+ 	        ArrayList<String>temp=new ArrayList<>();
+
+ 	        temp.add("");
+
+ 	        return temp;
+
+ 	    }
+
+ 	    // -v case
+ 
+ 	    if(cr>er || cc>ec){
+
+ 	        ArrayList<String>temp=new ArrayList<>();
+
+ 	        return temp;
+
+ 	    }
+
+ 	       ArrayList<String>ans=new ArrayList<>();
+    // for Horizontal
+
+ 	    int steps=1;
+
+ 	    while(steps <= ec){
+
+ 	      ArrayList<String>recursionHorizontal=getMazePathMultisteps(cr,cc+steps,er,ec);
+
+ 	      for(String val:recursionHorizontal){
+ 
+	         ans.add("H"+steps+val);
+ 
+	      }
+ 
+	      steps++;
+
+ 	    }
+ 	
+   // for Vertical
+    
+ 	    steps=1;
+
+ 	    while(steps<=er){
+ 
+	      ArrayList<String>recursionVertical=getMazePathMultisteps(cr+steps,cc,er,ec);
+
+ 	      for(String val:recursionVertical){
+ 
+	        ans.add("V"+steps+val);
+
+ 	      }
+ 
+	      steps++;
+
+ 	    }
+
+          //for diagonal
+ 	    
+ 	    steps=1;
+
+ 	    while(steps<=er && steps<= ec){
+
+ 	      ArrayList<String>recursionDiagonal=getMazePathMultisteps(cr+steps,cc+steps,er,ec);
+
+ 	      for(String val:recursionDiagonal){
+
+ 	         ans.add("D"+steps+val);
+
+ 	      }
+ 
+	      steps++;
+ 	
+    }
+ 	
+     return ans;
+ 
+	}
+
+}    
+                    
+                            //ANSWERE:   [H1H1V1V1, H1H1V2, H1V1H1V1, H1V1V1H1, H1V1D1, H1V2H1, H1D1V1, H2V1V1, H2V2, V1H1H1V1,
+                                        V1H1V1H1, V1H1D1, V1H2V1, V1V1H1H1, V1V1H2, V1D1H1, V2H1H1, V2H2, D1H1V1, D1V1H1, D1D1, D2]

@@ -1,0 +1,21 @@
+public class Main
+{
+	public static void main(String[] args) {
+	int st = 0;
+	int ed = 10;
+	getBoardPath(st,ed,"");
+	}
+	public static void getBoardPath(int st, int ed, String ans){
+	    if(st == ed){
+	        System.out.println(ans);
+	        return ;
+	    }
+	    if(st > ed){
+	        return ;
+	    }
+	    
+	    for(int i=1; i<=6; i++){
+	        getBoardPath(st+i,ed,ans+i);
+	    }
+	}
+}

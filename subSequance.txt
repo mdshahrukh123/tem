@@ -1,0 +1,56 @@
+ import java.util.*;
+
+ public class Main
+{
+
+      public static void main(String[] args) {
+
+	   String str="abc";
+	
+     System.out.println(subSequence(str));
+ 	
+   }
+ 	
+ 
+	
+    public static ArrayList<String> subSequence(String str){
+ 
+          // base con... 
+ 	    
+ 	
+        if(str.length()==0){
+ 
+	   ArrayList<String>temp=new ArrayList<>();
+ 
+	    temp.add("");
+ 	   
+           return temp;
+ 	    
+      }
+ 	    
+ 	   
+    char ch=str.charAt(0);  //a
+ 	
+     String remStr=str.substring(1);  
+	  ArrayList<String> recursionResult=subSequence(remStr);
+ 
+	  ArrayList<String>ans=new ArrayList<>();
+ 	   
+     for(String val:recursionResult ){
+ 	
+       ans.add(val);
+ 	   
+       ans.add(ch+val);
+ 	
+    }
+ 	  
+      return ans;
+ 
+   }
+ 	
+
+ 
+}
+
+
+

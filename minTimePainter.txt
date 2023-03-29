@@ -1,0 +1,81 @@
+
+                        ************* minimum time of painter *************
+
+public class Main
+{
+
+	public static void main(String[] args) {
+                       *****  Ans......  60 ;
+		int arr[] = {10,20,30,40};
+
+		int  k = 2;
+
+		minTime(arr,k);
+
+	}
+
+	public static void minTime(int arr[], int k){
+
+	    int MaxTime = 0, minTime = Integer.MIN_VALUE;
+
+	    for(int val : arr){
+
+	        MaxTime += val;
+
+	        minTime = Math.max(minTime,val);
+
+	    }
+
+	   // System.out.println(minTime);
+
+	   // System.out.println(MaxTime);
+
+	   int low = minTime, high = MaxTime;
+
+	   while(low < high){
+
+	       int mid = (low + high)/2;
+
+	       int painterReq = painterCal(arr,mid);
+
+	       if(painterReq <= k){
+
+	           high = mid;
+	
+       }else{
+
+	           low = mid+1;
+
+	       }
+
+	   }
+
+	   System.out.println(low);
+
+	}
+
+	public static int painterCal(int arr[], int time){
+
+	    int painterCount = 1;
+
+	    int sum = 0;
+
+	    for(int i=0; i<arr.length; i++){
+
+	        sum +=arr[i];
+
+	        if(sum > time){
+
+	            painterCount++;
+
+	            sum = arr[i];
+
+	        }
+
+	    }
+
+	    return painterCount;
+
+	}
+
+}

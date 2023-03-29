@@ -1,0 +1,40 @@
+##  find value through array##
+
+public class Main
+{
+
+     public static void main(String[] args) {
+
+	    int []arr={1,5,6,3,5,4,9,5,6};
+
+	    int val=6;
+	
+            boolean ans=findValue(arr,0,val);
+
+	    System.out.println(ans);
+ 
+	  }
+ 	
+ 	
+ 
+public static boolean findValue(int arr[],int vidx,int val){
+ 
+	    if(vidx==arr.length){
+ 	
+              return false;
+ 	   
+             }
+ 	  
+            if(arr[vidx]==val){
+ 
+	     return true;
+ 	
+            }
+ 	   
+      boolean ans=findValue(arr,vidx+1,val);
+ 
+	 return ans;
+ 	
+    }
+
+ }

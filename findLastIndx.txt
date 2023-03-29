@@ -1,0 +1,53 @@
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	    int []arr={1,5,6,3,5,4,9,5,6};
+
+	    int val=6;
+
+	   int ans=findindxlast(arr,0,val);
+
+	    System.out.println(ans);
+
+ 	}
+ 
+	
+  public static int findindxlast(int arr[],int vidx,int val){
+
+ 	    //base con...
+
+ 	    if(vidx==arr.length){
+
+ 	        return -1;
+ 
+	    }
+ 	
+    
+ 	    int foundidx=findindxlast(arr, vidx+1,val);
+ 
+	    if(foundidx==-1){
+ 
+	        if(arr[vidx]==val){
+ 
+	         return vidx;
+ 
+	        }else{
+ 
+	         return -1;
+ 
+	        }
+ 	 
+           }
+ 	  
+           else{
+ 	 
+             return foundidx;
+ 
+	    }
+ 
+	}
+ 
+	
+}

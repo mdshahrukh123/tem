@@ -1,0 +1,58 @@
+
+    
+         ///////************   Split Array **********/////////
+
+public class Main
+{
+
+	public static void main(String[] args) {
+
+		int [] arr = {10,20,30,40,50,60,70};
+
+		int vidx=0;
+
+		int g1=0,g2=0;
+
+		splitArray(arr,vidx,g1,g2,"","");
+
+		
+	}
+
+	public static void splitArray(int []arr,int vidx,int g1, int g2, String ans1,String ans2){
+
+	    // base
+ 
+	    if(arr.length == vidx){
+
+	        if(g1 == g2){
+
+	            System.out.println(ans1+" == "+ans2);
+
+	        }
+
+	        return;
+
+	    }
+
+	    
+	    splitArray(arr,vidx+1,g1,g2,ans1,ans2);
+
+	    splitArray(arr,vidx+1,g1+arr[vidx],g2,ans1+" "+arr[vidx],ans2);
+
+	    splitArray(arr,vidx+1,g1,g2+arr[vidx],ans1,ans2+" "+arr[vidx]);
+
+	}
+
+}
+
+       *************   ANSWERE   ***********
+
+      {10,20,30,40,50,60,70}
+
+         40 70 ==  50 60
+         50 60 ==  40 70
+	 30 40 ==  70
+	 30 70 ==  40 60
+	 30 60 ==  40 50
+ 	 40 60 ==  30 70
+	 40 50 ==  30 60

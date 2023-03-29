@@ -1,0 +1,30 @@
+public class Main
+{
+
+	public static void main(String[] args) {
+
+    int num=5;
+
+    int ans=fectorial(num);
+
+    System.out.println(ans);
+
+ 	}
+ 
+	public static int fectorial(int num){
+
+ 	    if(num==0){
+ 
+	        return 1;
+
+ 	    }
+ 
+	    int ans=fectorial(num-1);
+
+ 	    return ans*num;
+ 
+	    
+ 	}
+
+ 	 
+}

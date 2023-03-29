@@ -1,0 +1,48 @@
+public class Main
+{
+
+	public static void main(String[] args) {
+
+	  int arr[]={10,30,20,10,20,10,50,10,80};
+	
+          int val=10;
+ 	
+          int size=0;
+
+	  int[] ans= printIdx(arr,0,val,size);
+
+	   for(int val1:ans) {
+
+	      System.out.print(val1+" ");
+
+	  }
+
+	    	}
+	
+    	 public static int[] printIdx(int arr[],int vidx,int val,int size){
+
+	      if(vidx==arr.length){
+
+	    	     return new int[size];
+
+	    	  }
+	    
+	  	if(arr[vidx]==val){
+
+	      	int[]ans=printIdx(arr,vidx+1,val,size+1);
+
+	         ans[size]=vidx;
+	  
+    	          return ans;
+	 
+          }else{
+	
+      	    	int[]ans=printIdx(arr,vidx+1,val,size);
+	 
+     	    	return ans;
+	
+      	}
+	
+   }
+
+}

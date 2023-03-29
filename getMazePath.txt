@@ -1,0 +1,167 @@
+
+  import java.util.*;
+
+  public class Main
+{
+
+	public static void main(String[] args) {
+
+          //sr=startRow  ec=endColumn
+	
+	  int sr=0, sc=0;
+
+          int er=2, ec=2;
+
+	  System.out.println(getMazePath(sr,sc,er,ec));
+
+	}
+
+
+       public static ArrayList<String> getMazePath(int sr,int sc,int er,int ec){
+
+    // base con..
+	
+          if(sr==er && sc==ec){
+
+	     ArrayList<String> temp=new ArrayList<>();
+
+	     temp.add("");
+	    
+             return temp;
+	
+          }
+
+	    
+	
+    // -ve condition
+	
+          if(sr>er || sc>ec){
+	
+            ArrayList<String> temp=new ArrayList<>();
+
+	    return temp;
+	 
+          }
+	
+    
+	
+    // horizontal
+
+	    ArrayList<String> ans=new ArrayList<>();
+
+	    ArrayList<String> recursionResultHorizontal=getMazePath(sr,sc+1,er,ec);
+	
+            for(String val:recursionResultHorizontal){
+	  
+               ans.add("H"+val);
+	  
+            }
+
+	    
+	  
+  //vertical
+	
+           ArrayList<String> recursionResultVertical=getMazePath(sr+1,sc,er,ec);
+
+	    for(String val:recursionResultVertical){
+	 
+               ans.add("V"+val);
+	
+            }
+	   
+        return ans;
+
+       }
+
+  }
+                          //   ans --- [HHVV, HVHV, HVVH, VHHV, VHVH, VVHH]
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+        
+                           /*  horizontal , vertical and diagonal  program  */
+
+import java.util.*;
+
+  public class Main
+{
+
+	public static void main(String[] args) {
+
+          //sr=startRow  ec=endColumn
+	
+	  int sr=0, sc=0;
+
+          int er=2, ec=2;
+
+	  System.out.println(getMazePath(sr,sc,er,ec));
+
+	}
+
+
+       public static ArrayList<String> getMazePath(int sr,int sc,int er,int ec){
+
+    // base con..
+	
+          if(sr==er && sc==ec){
+
+	     ArrayList<String> temp=new ArrayList<>();
+
+	     temp.add("");
+	    
+             return temp;
+	
+          }
+
+	    
+	
+    // -ve condition
+	
+          if(sr>er || sc>ec){
+	
+            ArrayList<String> temp=new ArrayList<>();
+
+	    return temp;
+	 
+          }
+	
+    
+	
+    // horizontal
+
+	    ArrayList<String> ans=new ArrayList<>();
+
+	    ArrayList<String> recursionResultHorizontal=getMazePath(sr,sc+1,er,ec);
+	
+            for(String val:recursionResultHorizontal){
+	  
+               ans.add("H"+val);
+	  
+            }
+
+	    
+	  
+  //vertical
+	
+           ArrayList<String> recursionResultVertical=getMazePath(sr+1,sc,er,ec);
+
+	    for(String val:recursionResultVertical){
+	 
+               ans.add("V"+val);
+	
+            }
+	
+
+  // for diagonal
+          ArrayList<String>recursionDiagonal=getMazePath(cr+1,cc+1,er,ec);
+
+ 	    for(String val:recursionDiagonal){
+
+ 	        ans.add("D"+val);
+
+ 	    }   
+        return ans;
+
+       }
+
+  }                      //  ansewer :  [HHVV, HVHV, HVVH, HVD, HDV, VHHV, VHVH, VHD, VVHH, VDH, DHV, DVH, DD]

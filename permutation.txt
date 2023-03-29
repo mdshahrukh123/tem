@@ -1,0 +1,56 @@
+  import java.util.*;
+
+  public class Main
+{
+
+      public static void main(String[] args) {
+	
+        String str="abc";
+	 
+        System.out.println(permutation(str));
+	
+     }
+	
+	
+     public static ArrayList<String> permutation(String str){
+
+	    // base con..
+	  
+           if(str.length()==0){
+	    
+           ArrayList<String>temp=new ArrayList<>();
+	  
+           temp.add("");
+	      
+          return temp;
+	   
+     }
+	   
+         char ch=str.charAt(0);
+	  
+         String remStr=str.substring(1);
+
+	 ArrayList<String>recursionResult= permutation(remStr);
+	
+         ArrayList<String>ans=new ArrayList<>();
+	  
+            for(String val: recursionResult){
+	
+            for(int i=0;i<=val.length();i++){
+	
+              String finalStr=val.substring(0,i)+ch+val.substring(i);
+	
+               ans.add(finalStr);
+	            
+
+	    }
+	  
+        }
+	   
+          return ans;
+
+      }
+
+   } 
+
+     /////   answer:   [abc,bac,bca,bca,cba,cab]
